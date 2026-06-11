@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Study Material Generator</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+<div class="motion-bg" id="motionBg">
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+</div>
+
+<div class="app-layout">
+    <div class="sidebar">
+        <h3>Recent History</h3>
+        <ul id="historyList">
+            </ul>
+        <button class="clear-btn" onclick="clearHistory()">Clear History</button>
+    </div>
+
+    <div class="container">
+        <div class="selectors-header">
+            <div class="selector-item">
+                <label for="themeSelect">Theme:</label>
+                <select id="themeSelect" onchange="changeTheme()">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                    <option value="color">Vibrant Color</option>
+                    <option value="multicolor">Multicolor Rave</option>
+                    <option value="rock">Rock / Slate</option>
+                </select>
+            </div>
+            <div class="selector-item">
+                <label for="motionSelect">Motion:</label>
+                <select id="motionSelect" onchange="changeMotion()">
+                    <option value="gentle">Gentle Floating</option>
+                    <option value="fast">Energetic</option>
+                    <option value="none">Static / Off</option>
+                </select>
+            </div>
+        </div>
+
+        <h1>AI Study Material Generator</h1>
+
+        <div class="input-group">
+            <input type="text" id="topic" placeholder="Enter a topic (e.g., Operating Systems)">
+            
+            <select id="difficulty">
+                <option value="5th Grader">Explain like I'm 10</option>
+                <option value="High School Student" selected>High School Level</option>
+                <option value="College Student">College Level</option>
+                <option value="Expert">Expert Level</option>
+            </select>
+        </div>
+
+        <button id="generateBtn" onclick="generateMaterial()">
+            Generate Study Material
+        </button>
+
+        <div id="action-buttons" style="display: none;">
+            <button class="secondary-btn" onclick="copyContent()">📋 Copy Notes</button>
+            <button class="secondary-btn" onclick="downloadPDF()">📄 Download PDF</button>
+        </div>
+
+        <div id="result"></div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
